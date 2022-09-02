@@ -1,0 +1,14 @@
+C:\Users\20400\source\repos\Problema_BANCO_rediseñado\Problema_BANCO_rediseñado\bin\Debug\Problema_BANCO_rediseñado.exe.config
+C:\Users\20400\source\repos\Problema_BANCO_rediseñado\Problema_BANCO_rediseñado\bin\Debug\Problema_BANCO_rediseñado.exe
+C:\Users\20400\source\repos\Problema_BANCO_rediseñado\Problema_BANCO_rediseñado\bin\Debug\Problema_BANCO_rediseñado.pdb
+C:\Users\20400\source\repos\Problema_BANCO_rediseñado\Problema_BANCO_rediseñado\obj\Debug\Problema_BANCO_rediseñado.csproj.AssemblyReference.cache
+C:\Users\20400\source\repos\Problema_BANCO_rediseñado\Problema_BANCO_rediseñado\obj\Debug\Problema_BANCO_rediseñado.Form1.resources
+C:\Users\20400\source\repos\Problema_BANCO_rediseñado\Problema_BANCO_rediseñado\obj\Debug\Problema_BANCO_rediseñado.Properties.Resources.resources
+C:\Users\20400\source\repos\Problema_BANCO_rediseñado\Problema_BANCO_rediseñado\obj\Debug\Problema_BANCO_rediseñado.csproj.GenerateResource.cache
+C:\Users\20400\source\repos\Problema_BANCO_rediseñado\Problema_BANCO_rediseñado\obj\Debug\Problema_BANCO_rediseñado.csproj.CoreCompileInputs.cache
+C:\Users\20400\source\repos\Problema_BANCO_rediseñado\Problema_BANCO_rediseñado\obj\Debug\Problema_BANCO_rediseñado.exe
+C:\Users\20400\source\repos\Problema_BANCO_rediseñado\Problema_BANCO_rediseñado\obj\Debug\Problema_BANCO_rediseñado.pdb
+C:\Users\20400\source\repos\Problema_BANCO_rediseñado\Problema_BANCO_rediseñado\obj\Debug\Problema_BANCO_rediseñado.Presentacion.Nuevo_cliente.resources
+C:\Users\20400\source\repos\Problema_BANCO_rediseñado\Problema_BANCO_rediseñado\obj\Debug\Problema_BANCO_rediseñado.Presentacion.Info_cliente.resources
+C:\Users\20400\source\repos\Problema_BANCO_rediseñado\Problema_BANCO_rediseñado\obj\Debug\Problema_BANCO_rediseñado.Presentacion.Crear_cuenta.resources
+C:\Users\20400\source\repos\Problema_BANCO_rediseñado\Problema_BANCO_rediseñado\obj\Debug\Problema_BANCO_rediseñado.Retiro_dinero.resources
