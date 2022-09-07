@@ -29,7 +29,6 @@ namespace Problema_BANCO_rediseñado.Presentacion
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.lbl_cartelBienvenida = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,11 +38,6 @@ namespace Problema_BANCO_rediseñado.Presentacion
             this.txt_dniCliente = new System.Windows.Forms.TextBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.BTN_NuevaCuenta = new System.Windows.Forms.Button();
-            this.bancoDataSet = new Problema_BANCO_rediseñado.bancoDataSet();
-            this.cuentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cuentaTableAdapter = new Problema_BANCO_rediseñado.bancoDataSetTableAdapters.cuentaTableAdapter();
-            this.bancoDataSet1 = new Problema_BANCO_rediseñado.bancoDataSet();
-            this.bancoDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.cbuCLM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TIPO_CUENTACLM = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,18 +45,21 @@ namespace Problema_BANCO_rediseñado.Presentacion
             this.saldoCLM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv_delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.RestarSaldoDGV = new System.Windows.Forms.DataGridViewButtonColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.bancoDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cuentaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bancoDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bancoDataSet1BindingSource)).BeginInit();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.CBUclm2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TIPOCUENTAclm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SALDOclm2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BTNhabilitar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_cartelBienvenida
             // 
             this.lbl_cartelBienvenida.AutoSize = true;
             this.lbl_cartelBienvenida.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_cartelBienvenida.Location = new System.Drawing.Point(315, 9);
+            this.lbl_cartelBienvenida.Location = new System.Drawing.Point(587, 9);
             this.lbl_cartelBienvenida.Name = "lbl_cartelBienvenida";
             this.lbl_cartelBienvenida.Size = new System.Drawing.Size(153, 19);
             this.lbl_cartelBienvenida.TabIndex = 0;
@@ -118,7 +115,7 @@ namespace Problema_BANCO_rediseñado.Presentacion
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(713, 415);
+            this.btnSalir.Location = new System.Drawing.Point(1165, 415);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 8;
@@ -128,37 +125,13 @@ namespace Problema_BANCO_rediseñado.Presentacion
             // 
             // BTN_NuevaCuenta
             // 
-            this.BTN_NuevaCuenta.Location = new System.Drawing.Point(568, 415);
+            this.BTN_NuevaCuenta.Location = new System.Drawing.Point(1022, 415);
             this.BTN_NuevaCuenta.Name = "BTN_NuevaCuenta";
             this.BTN_NuevaCuenta.Size = new System.Drawing.Size(108, 23);
             this.BTN_NuevaCuenta.TabIndex = 9;
             this.BTN_NuevaCuenta.Text = "NUEVA CUENTA";
             this.BTN_NuevaCuenta.UseVisualStyleBackColor = true;
             this.BTN_NuevaCuenta.Click += new System.EventHandler(this.BTN_NuevaCuenta_Click);
-            // 
-            // bancoDataSet
-            // 
-            this.bancoDataSet.DataSetName = "bancoDataSet";
-            this.bancoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // cuentaBindingSource
-            // 
-            this.cuentaBindingSource.DataMember = "cuenta";
-            this.cuentaBindingSource.DataSource = this.bancoDataSet;
-            // 
-            // cuentaTableAdapter
-            // 
-            this.cuentaTableAdapter.ClearBeforeFill = true;
-            // 
-            // bancoDataSet1
-            // 
-            this.bancoDataSet1.DataSetName = "bancoDataSet";
-            this.bancoDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bancoDataSet1BindingSource
-            // 
-            this.bancoDataSet1BindingSource.DataSource = this.bancoDataSet1;
-            this.bancoDataSet1BindingSource.Position = 0;
             // 
             // dataGridView1
             // 
@@ -200,9 +173,9 @@ namespace Problema_BANCO_rediseñado.Presentacion
             // 
             // dgv_delete
             // 
-            this.dgv_delete.HeaderText = "BORRAR";
+            this.dgv_delete.HeaderText = "DESHABILITAR";
             this.dgv_delete.Name = "dgv_delete";
-            this.dgv_delete.Text = "BORRAR";
+            this.dgv_delete.Text = "DESHABILITAR";
             this.dgv_delete.UseColumnTextForButtonValue = true;
             // 
             // RestarSaldoDGV
@@ -212,11 +185,58 @@ namespace Problema_BANCO_rediseñado.Presentacion
             this.RestarSaldoDGV.Text = "Retiro de dinero";
             this.RestarSaldoDGV.UseColumnTextForButtonValue = true;
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CBUclm2,
+            this.TIPOCUENTAclm,
+            this.SALDOclm2,
+            this.BTNhabilitar});
+            this.dataGridView2.Location = new System.Drawing.Point(801, 191);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(448, 150);
+            this.dataGridView2.TabIndex = 11;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            // 
+            // CBUclm2
+            // 
+            this.CBUclm2.HeaderText = "CBU";
+            this.CBUclm2.Name = "CBUclm2";
+            // 
+            // TIPOCUENTAclm
+            // 
+            this.TIPOCUENTAclm.HeaderText = "TIPO DE CUENTA";
+            this.TIPOCUENTAclm.Name = "TIPOCUENTAclm";
+            // 
+            // SALDOclm2
+            // 
+            this.SALDOclm2.HeaderText = "SALDO";
+            this.SALDOclm2.Name = "SALDOclm2";
+            // 
+            // BTNhabilitar
+            // 
+            this.BTNhabilitar.HeaderText = "HABILITAR";
+            this.BTNhabilitar.Name = "BTNhabilitar";
+            this.BTNhabilitar.Text = "HABILITAR";
+            this.BTNhabilitar.UseColumnTextForButtonValue = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(958, 165);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(153, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "CUENTAS DESHABILITADAS";
+            // 
             // Info_cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 450);
+            this.ClientSize = new System.Drawing.Size(1275, 450);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.BTN_NuevaCuenta);
             this.Controls.Add(this.btnSalir);
@@ -230,11 +250,8 @@ namespace Problema_BANCO_rediseñado.Presentacion
             this.Name = "Info_cliente";
             this.Text = "Info_cliente";
             this.Load += new System.EventHandler(this.Info_cliente_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bancoDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cuentaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bancoDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bancoDataSet1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,11 +268,8 @@ namespace Problema_BANCO_rediseñado.Presentacion
         private System.Windows.Forms.TextBox txt_dniCliente;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button BTN_NuevaCuenta;
-        private bancoDataSet bancoDataSet;
-        private System.Windows.Forms.BindingSource cuentaBindingSource;
-        private bancoDataSetTableAdapters.cuentaTableAdapter cuentaTableAdapter;
-        private bancoDataSet bancoDataSet1;
-        private System.Windows.Forms.BindingSource bancoDataSet1BindingSource;
+        //private bancoDataSet bancoDataSet;
+        //private System.Windows.Forms.BindingSource cuentaBindingSource;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn cbuCLM;
         private System.Windows.Forms.DataGridViewTextBoxColumn TIPO_CUENTACLM;
@@ -263,5 +277,11 @@ namespace Problema_BANCO_rediseñado.Presentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn saldoCLM;
         private System.Windows.Forms.DataGridViewButtonColumn dgv_delete;
         private System.Windows.Forms.DataGridViewButtonColumn RestarSaldoDGV;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CBUclm2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TIPOCUENTAclm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SALDOclm2;
+        private System.Windows.Forms.DataGridViewButtonColumn BTNhabilitar;
     }
 }

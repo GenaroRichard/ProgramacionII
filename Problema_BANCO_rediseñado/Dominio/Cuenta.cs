@@ -43,13 +43,20 @@ namespace Problema_BANCO_rediseñado.Dominio
             UltimoMovimiento = ultimoMovimiento;
             cliente.DNI = DNI_CLIENTE;
         }
-        public int quitarCuenta(int cbu)
+        public int deshabilitarCuenta(int cbu)
         {
             int estado = 0;
             
-            estado = c1.borrarCuenta(cbu);
+            estado = c1.deshabilitarCuenta(cbu);
             return estado;
 
+
+        }
+        public int habilitarCuenta(int cbu)
+        {
+            int estado = 0;
+            estado = c1.habilitarCuenta(cbu);
+            return estado;
 
         }
 

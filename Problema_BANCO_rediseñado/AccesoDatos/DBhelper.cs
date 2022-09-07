@@ -38,9 +38,9 @@ namespace Problema_BANCO_rediseñado.AccesoDatos
 
             return estado;
         }
-        public int CrearCuenta(int dni,DateTime ultimo_movimiento,int id_tipo_cuenta,int saldo)
+        public int CrearCuenta(int dni,DateTime ultimo_movimiento,int id_tipo_cuenta,int saldo, int estado)
         {
-            int estado = 0;
+            int filasAfectadas = 0;
            
             connection.Open();
             SqlCommand cAC2 = new SqlCommand("INSERTAR_NUEVA_CUENTA", connection);
@@ -49,12 +49,13 @@ namespace Problema_BANCO_rediseñado.AccesoDatos
             cAC2.Parameters.AddWithValue("@id_tipo_cuenta", id_tipo_cuenta);
             cAC2.Parameters.AddWithValue("@dni_cliente", dni);
             cAC2.Parameters.AddWithValue("@saldo", saldo);
+            cAC2.Parameters.AddWithValue("@estado", estado);
 
-            estado = cAC2.ExecuteNonQuery();
+           filasAfectadas = cAC2.ExecuteNonQuery();
             connection.Close();
 
 
-            return estado;
+            return filasAfectadas;
         }
         public DataTable CargarUsuarios()
         {
@@ -106,11 +107,11 @@ namespace Problema_BANCO_rediseñado.AccesoDatos
             return tabla;
 
         }
-        public int borrarCuenta(int cbu)
+        public int deshabilitarCuenta(int cbu)
         {
             int estado = 0;
             connection.Open();
-            SqlCommand spQUITARCUENTA = new SqlCommand("QUITAR_CUENTA_CLIENTE", connection);
+            SqlCommand spQUITARCUENTA = new SqlCommand("DESHABILITAR_CUENTA_CLIENTE", connection);
             spQUITARCUENTA.CommandType = CommandType.StoredProcedure;
             spQUITARCUENTA.Parameters.AddWithValue("@CBUcuenta", cbu);
             estado = spQUITARCUENTA.ExecuteNonQuery();
@@ -118,7 +119,23 @@ namespace Problema_BANCO_rediseñado.AccesoDatos
             return estado;
 
         }
-       
+
+
+        public int habilitarCuenta(int cbu)
+        {
+            int estado = 0;
+            connection.Open();
+            SqlCommand spQUITARCUENTA = new SqlCommand("HABILITAR_CUENTA_CLIENTE", connection);
+            spQUITARCUENTA.CommandType = CommandType.StoredProcedure;
+            spQUITARCUENTA.Parameters.AddWithValue("@CBUcliente", cbu);
+            estado = spQUITARCUENTA.ExecuteNonQuery();
+            connection.Close();
+            return estado;
+
+        }
+
+
+
 
     }
 }

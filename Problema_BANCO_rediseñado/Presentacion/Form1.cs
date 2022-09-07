@@ -1,6 +1,7 @@
 ﻿using Problema_BANCO_rediseñado.AccesoDatos;
 using Problema_BANCO_rediseñado.Dominio;
 using Problema_BANCO_rediseñado.Presentacion;
+using Problema_BANCO_rediseñado.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -98,6 +99,18 @@ namespace Problema_BANCO_rediseñado
 
             }
             return estado;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ReporteListado reporteListado = new ReporteListado();
+            reporteListado.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            REPORTE_PERSONALIZADO rEPORTE_PERSONALIZADO = new REPORTE_PERSONALIZADO();
+            rEPORTE_PERSONALIZADO.ShowDialog();
         }
     }
 }

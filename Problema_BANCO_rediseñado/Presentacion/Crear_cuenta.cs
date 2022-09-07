@@ -70,6 +70,7 @@ namespace Problema_BANCO_rediseñado.Presentacion
                 DateTime ultimo_movimiento = dateTimePicker1.Value;
                 int id_tipo_cuenta =  Convert.ToInt32( CB_tiposCuenta.SelectedValue);
                 int saldo = Convert.ToInt32(txtSaldo.Text);
+                int estado = 1;
 
                 Cuenta NC = new Cuenta(saldo, id_tipo_cuenta, ultimo_movimiento, dni);
                 Cliente.agregarCuenta(NC);
@@ -78,7 +79,7 @@ namespace Problema_BANCO_rediseñado.Presentacion
 
                 try
                 {
-                    if (c1.CrearCuenta(dni, ultimo_movimiento, id_tipo_cuenta, saldo) > 0)
+                    if (c1.CrearCuenta(dni, ultimo_movimiento, id_tipo_cuenta, saldo,estado) > 0)
                     {
                         MessageBox.Show("Cuenta creada");
                     }

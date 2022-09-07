@@ -31,8 +31,7 @@ namespace Problema_BANCO_rediseñado.Presentacion
 
         private void Info_cliente_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'bancoDataSet.cuenta' Puede moverla o quitarla según sea necesario.
-            this.cuentaTableAdapter.Fill(this.bancoDataSet.cuenta);
+            
             txt_nombreCliente.Enabled = false;
             txt_apellidocliente.Enabled = false;
             txt_dniCliente.Enabled = false;
@@ -55,10 +54,15 @@ namespace Problema_BANCO_rediseñado.Presentacion
                 string tipoCuenta = tabla.Rows[i][1].ToString();
                 string UltimoMovimiento = tabla.Rows[i][2].ToString();
                 string saldo = tabla.Rows[i][3].ToString();
+                int estado = Convert.ToInt32(tabla.Rows[i][4]);
 
+                
 
-
-                dataGridView1.Rows.Add(CBU, tipoCuenta, UltimoMovimiento, saldo);
+               if(estado == 1)
+                    dataGridView1.Rows.Add(CBU, tipoCuenta, UltimoMovimiento, saldo);
+               else
+                    dataGridView2.Rows.Add(CBU, tipoCuenta, saldo);
+                dataGridView1.InvalidateColumn(4);
             }
             
 
@@ -100,15 +104,15 @@ namespace Problema_BANCO_rediseñado.Presentacion
 
                 int cbu = Convert.ToInt32(filaSeleccionada.Cells["cbuCLM"].Value);
 
-                Console.WriteLine(cbu);
+                
 
-                if(MessageBox.Show("Desea eliminar la cuenta?","ELIMINANDO CUENTA",MessageBoxButtons.YesNo,MessageBoxIcon.Exclamation)== DialogResult.Yes)
+                if(MessageBox.Show("Desea deshabilitar la cuenta?","ELIMINANDO CUENTA",MessageBoxButtons.YesNo,MessageBoxIcon.Exclamation)== DialogResult.Yes)
                 {
                     try
                     {
-                        if (cuenta.quitarCuenta(cbu) > 0)
+                        if (cuenta.deshabilitarCuenta(cbu) > 0)
                         {
-                            MessageBox.Show("Cuenta eliminada");
+                            MessageBox.Show("Cuenta deshabilitada");
 
                         }
 
@@ -116,11 +120,12 @@ namespace Problema_BANCO_rediseñado.Presentacion
                     catch (Exception)
                     {
 
-                        MessageBox.Show("Error al eliminar la cuenta");
+                        MessageBox.Show("Error al deshabilitar la cuenta");
                     }
 
                 }
                 dataGridView1.Rows.Clear();
+                dataGridView2.Rows.Clear();
                 
                 this.cargarCuentasDeClienteNRO(documento);
 
@@ -162,5 +167,41 @@ namespace Problema_BANCO_rediseñado.Presentacion
 
         }
 
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(dataGridView2.CurrentCell.ColumnIndex == 3)
+            {
+                var filaSelecionada = dataGridView2.CurrentRow;
+
+                int cbu = Convert.ToInt32(filaSelecionada.Cells["CBUclm2"].Value);
+
+                if(MessageBox.Show("DESEA HABILIAR LA CUENTA?","HABILITANDO CUENTA",MessageBoxButtons.YesNo,MessageBoxIcon.Exclamation)== DialogResult.Yes)
+                {
+                    
+
+
+                    try
+                    {
+                        if (cuenta.habilitarCuenta(cbu) > 0)
+                        {
+                            MessageBox.Show("Cuenta habilitada");
+
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                        MessageBox.Show("CUENTA NO HABILITADA. ERROR", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    dataGridView1.Rows.Clear();
+                    dataGridView2.Rows.Clear();
+
+                    this.cargarCuentasDeClienteNRO(documento);
+
+                }
+
+            }
+        }
     }
 }
